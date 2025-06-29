@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心业务架构</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css" rel="stylesheet">
+    <style>
+        .main-graph {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .business-col {
+            min-width: 120px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 18px 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+        .business-item {
+            background: #e0e7ff;
+            color: #3730a3;
+            font-weight: 500;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 1em;
+            box-shadow: 0 1px 4px rgba(59,130,246,0.06);
+        }
+        .product-center-col {
+            min-width: 260px;
+            background: #fff7ed;
+            border-radius: 12px;
+            padding: 18px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+            position: relative;
+        }
+        .product-center-title {
+            font-weight: bold;
+            color: #ea580c;
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .pc-func {
+            background: #fff;
+            border-left: 5px solid #fdba74;
+            border-radius: 8px;
+            margin: 0 0 0 0;
+            padding: 10px 16px;
+            font-weight: 500;
+            color: #b45309;
+            position: relative;
+        }
+        .pc-func:last-child {
+            background: #e5e7eb;
+            color: #444;
+            border-left: 5px solid #9ca3af;
+        }
+        .arrow-right {
+            position: absolute;
+            right: -38px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.2em;
+            color: #a3a3a3;
+        }
+        .ability-col {
+            min-width: 220px;
+            background: #f0fdf4;
+            border-radius: 12px;
+            padding: 18px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: stretch;
+            position: relative;
+        }
+        .ability-title {
+            font-weight: bold;
+            color: #059669;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .ability-item {
+            background: #fff;
+            border-left: 5px solid #6ee7b7;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: #047857;
+            font-weight: 500;
+        }
+        .system-col {
+            min-width: 180px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 18px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: stretch;
+        }
+        .system-title {
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .system-item {
+            background: #e0e7ff;
+            color: #3730a3;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .system-item-yellow {
+            background: #fef9c3;
+            color: #b45309;
+        }
+        .system-item-green {
+            background: #bbf7d0;
+            color: #166534;
+        }
+        .system-item-orange {
+            background: #fed7aa;
+            color: #b45309;
+        }
+        .dashed-arrow {
+            border: 1.5px dashed #a3a3a3;
+            border-radius: 2px;
+            height: 32px;
+            margin: 0 auto;
+            width: 0;
+        }
+        .explain-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e42;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: #b45309;
+            font-size: 0.98em;
+            margin: 12px 0 0 0;
+        }
+        @media (max-width: 900px) {
+            .main-graph { flex-direction: column; align-items: stretch; gap: 18px; }
+            .arrow-right { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-2 py-6">
+        <div class="text-3xl font-bold text-center mb-2 text-gray-800">产品中心业务架构</div>
+        <div class="text-center text-gray-500 mb-6">一站式业务/产品/功能集管理平台，深度对接核心业务系统</div>
+        <div class="main-graph">
+            <!-- 业务入口 -->
+            <div class="business-col">
+                <div class="text-base font-bold text-gray-700 mb-2">业务入口</div>
+                <div class="business-item">支付</div>
+                <div class="business-item">智慧门店</div>
+                <div class="business-item">全来店</div>
+                <div class="business-item">……</div>
+            </div>
+            <!-- 箭头 -->
+            <div class="flex flex-col justify-center items-center">
+                <i class="mdi mdi-arrow-right-bold text-3xl text-gray-400"></i>
+            </div>
+            <!-- 产品中心 -->
+            <div class="product-center-col">
+                <div class="product-center-title">产品中心</div>
+                <div class="pc-func">业务/产品入库注册<br><span class="text-xs text-gray-500">获取系统标识参数/密钥</span></div>
+                <div class="pc-func">权限配置</div>
+                <div class="pc-func">开放对接能力管理</div>
+                <div class="pc-func">业务/产品关系管理</div>
+                <div class="pc-func">支付流程编排 <span class="text-xs text-gray-400">（后期）</span></div>
+                <!-- 箭头到能力表现 -->
+                <span class="arrow-right"><i class="mdi mdi-arrow-right-bold"></i></span>
+            </div>
+            <!-- 能力表现 -->
+            <div class="ability-col">
+                <div class="ability-title">具体能力表现</div>
+                <div class="ability-item">系统调用权限</div>
+                <div class="ability-item">操作流程及管理</div>
+                <div class="ability-item">能力仓库</div>
+                <div class="ability-item">能力上下架操作</div>
+                <div class="ability-item">相互关系管理</div>
+                <div class="ability-item">绑定商品中心管理</div>
+                <div class="explain-box">状态依赖关系、产品层级组合关系</div>
+            </div>
+            <!-- 箭头 -->
+            <div class="flex flex-col justify-center items-center">
+                <i class="mdi mdi-arrow-right-bold text-3xl text-gray-400"></i>
+            </div>
+            <!-- 外部系统 -->
+            <div class="system-col">
+                <div class="system-title">核心业务中台</div>
+                <div class="system-item">商户中心</div>
+                <div class="system-item-green">用户中心</div>
+                <div class="system-item-orange">销售CRM</div>
+                <div class="system-item-yellow">商品中心</div>
+                <div class="system-item bg-gray-100 text-gray-700">其他产品开放能力</div>
+                <div class="explain-box bg-yellow-50 border-yellow-400 text-yellow-700">
+                    <div>支付交易权限</div>
+                    <div>支付交易配置权限</div>
+                    <div>xx数据查询权限</div>
+                    <div>……</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
